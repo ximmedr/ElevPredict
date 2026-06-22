@@ -5,7 +5,7 @@ from datetime import datetime
 from streamlit_autorefresh import st_autorefresh
 
 # =====================================
-# CONFIGURACIÓN
+# CONFIGURACIÓN - TIEMPO ACTUALIZACIÓN
 # =====================================
 
 st.set_page_config(
@@ -17,7 +17,7 @@ st_autorefresh(
     key="elevpredict_refresh"
 )
 # =====================================
-# VARIABLES DE SESIÓN
+# VARIABLES DE SESIÓN - MEMORIA DEL SISTEMA
 # =====================================
 
 if "historial_vibracion" not in st.session_state:
@@ -45,7 +45,7 @@ if "ciclos" not in st.session_state:
     st.session_state.ciclos = 0
 
 # =====================================
-# PANEL LATERAL
+# PANEL LATERAL - VARIABLES DE CONDICIONAMIENTO
 # =====================================
 
 st.sidebar.title("Configuración")
