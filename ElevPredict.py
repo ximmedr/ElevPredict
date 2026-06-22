@@ -388,6 +388,5 @@ st.download_button(
 )
 
 st.caption(
-    "Aplicación simulada desarrollada por Ximena Díaz R. 
-    Tecnología en la Industria 4.0 - Ingeniería en Mantenimiento Industrial"
+    "Aplicación de simulación desarrollada por Ximena Díaz R. Tecnología en la Industria 4.0 - Ingeniería en Mantenimiento Industrial"
 )
