@@ -388,5 +388,6 @@ st.download_button(
 )
 
 st.caption(
-    "ElevPredict IoT fue fue desarrollado por Ximena Díaz R - 2026"
+    "Aplicación simulada desarrollada por Ximena Díaz R. 
+    **Tecnología en la Industria 4.0 - Ingeniería en Mantenimiento Industrial"
 )
