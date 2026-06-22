@@ -184,9 +184,14 @@ fecha_hora = datetime.now().strftime("%d/%m/%Y %H:%M:%S")
 # =====================================
 
 st.title("ElevPredict IoT")
-st.subheader(
-    "Sistema de Monitoreo Predictivo para Motor de Ascensor 1-ST"
-)
+
+st.markdown("""
+### Sistema de Monitoreo Predictivo
+
+**Edificio Costanera Center**  
+**Ascensor Torre Norte N°3**  
+**Activo: ASC-TN-003**
+""")
 
 st.info(f"Última actualización: {fecha_hora}")
 
