@@ -336,13 +336,36 @@ st.dataframe(
     use_container_width=True
 )
 
-csv = st.session_state.bitacora.to_csv(
-    index=False
-).encode("utf-8")
+# =====================================
+# DESCARGA TXT
+# =====================================
+
+contenido_txt = """
+=================================
+ELEVPREDICT IoT
+BITÁCORA DE MEDICIONES
+=================================
+
+"""
+
+for _, fila in st.session_state.bitacora.iterrows():
+
+    contenido_txt += f"""
+Fecha y Hora: {fila['FechaHora']}
+Estado: {fila['Estado']}
+Piso: {fila['Piso']}
+Vibración: {fila['Vibración']} mm/s
+Temperatura: {fila['Temperatura']} °C
+Corriente: {fila['Corriente']} A
+Salud: {fila['Salud']} %
+Riesgo: {fila['Riesgo']} %
+
+---------------------------------
+"""
 
 st.download_button(
-    "Descargar Bitácora CSV",
-    csv,
-    "bitacora_elevpredict.csv",
-    "text/csv"
+    label="Descargar Bitácora TXT",
+    data=contenido_txt,
+    file_name="bitacora_elevpredict.txt",
+    mime="text/plain"
 )
