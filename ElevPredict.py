@@ -386,3 +386,7 @@ st.download_button(
     file_name="bitacora_elevpredict.txt",
     mime="text/plain"
 )
+
+st.caption(
+    "ElevPredict IoT fue fue desarrollado por Ximena Díaz R - 2026"
+)
