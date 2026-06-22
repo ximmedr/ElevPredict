@@ -2,6 +2,7 @@ import streamlit as st
 import pandas as pd
 import random
 from datetime import datetime
+from streamlit_autorefresh import st_autorefresh
 
 # =====================================
 # CONFIGURACIÓN
@@ -11,7 +12,10 @@ st.set_page_config(
     page_title="ElevPredict IoT",
     layout="wide"
 )
-
+st_autorefresh(
+    interval=2000,
+    key="elevpredict_refresh"
+)
 # =====================================
 # VARIABLES DE SESIÓN
 # =====================================
@@ -188,12 +192,18 @@ st.title("ElevPredict IoT")
 st.markdown("""
 ### Sistema de Monitoreo Predictivo
 
-**Edificio Costanera Center**  
-**Ascensor Torre Norte N°3**  
-**Activo: ASC-TN-003**
+**Edificio Comercial Brasil Antofagasta**  
+**Ascensor Torre Sur N°1**  
+**Activo: ASC-TS-001**
 """)
 
-st.info(f"Última actualización: {fecha_hora}")
+st.info(
+    f"Última actualización: {fecha_hora}"
+)
+
+st.caption(
+    "Sistema IoT conectado mediante arquitectura ESP32 + WiFi + Base de Datos"
+)
 
 # =====================================
 # ESTADO OPERACIONAL
@@ -230,6 +240,12 @@ r1, r2, r3 = st.columns(3)
 r1.metric("Salud del Motor", f"{salud:.0f}%")
 r2.metric("Riesgo de Falla", f"{riesgo:.0f}%")
 r3.metric("Tendencia", tendencia)
+disponibilidad = salud
+
+r3.metric(
+    "Disponibilidad",
+    f"{disponibilidad:.0f}%"
+)
 
 # =====================================
 # ALERTAS
@@ -306,7 +322,7 @@ with a4:
 # BITÁCORA
 # =====================================
 
-st.subheader("Bitácora de Mediciones")
+st.subheader("Registro Histórico de Mediciones")
 
 if st.button("Guardar Medición"):
 
