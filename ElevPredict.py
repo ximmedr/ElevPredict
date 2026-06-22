@@ -13,7 +13,7 @@ st.set_page_config(
     layout="wide"
 )
 st_autorefresh(
-    interval=2000,
+    interval=3000,
     key="elevpredict_refresh"
 )
 # =====================================
@@ -235,14 +235,15 @@ st.divider()
 # SALUD Y RIESGO
 # =====================================
 
-r1, r2, r3 = st.columns(3)
+r1, r2, r3, r4 = st.columns(4)
 
 r1.metric("Salud del Motor", f"{salud:.0f}%")
 r2.metric("Riesgo de Falla", f"{riesgo:.0f}%")
 r3.metric("Tendencia", tendencia)
+
 disponibilidad = salud
 
-r3.metric(
+r4.metric(
     "Disponibilidad",
     f"{disponibilidad:.0f}%"
 )
@@ -278,8 +279,8 @@ elif temperatura > 75:
 
 else:
     st.success(
-        "Condiciones operacionales dentro de parámetros normales."
-    )
+    f"Condición normal | Disponibilidad estimada: {disponibilidad:.0f}%"
+)
 
 # =====================================
 # GRÁFICO
